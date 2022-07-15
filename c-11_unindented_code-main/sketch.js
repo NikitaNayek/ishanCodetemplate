@@ -30,6 +30,10 @@ function setup() {
 
     //ground is moving in left direction
     ground.velocityX = -4;
+
+    //invisible ground creation
+    ground2=createSprite(200,190,400,20);
+    ground2.visible=false
 }
 
 function draw() {
@@ -37,8 +41,8 @@ function draw() {
     background("teal");
 
     //jump when the space button is pressed
-    if (keyDown("space")) {
-    trex.velocityY = -10;
+    if (keyDown("space") && trex.y>100) {
+    trex.velocityY= -10;
     }
 
     //give gravity
@@ -50,7 +54,7 @@ function draw() {
     }
 
     //to make the trex stand in the ground
-    trex.collide(ground);
+    trex.collide(ground2);
 
     //display the sprites on the screen
     drawSprites();
